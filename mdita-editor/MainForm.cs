@@ -14,6 +14,7 @@ using System.Net;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Collections;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using mdita_update;
@@ -761,7 +762,7 @@ namespace mDitaEditor
                 Debug.WriteLine("Loaded tools: " + Project.LearningOverview.ToolList.Count);
 
                 //Ako ne postoji mapa dodaje mapu
-                if (Project.LearningOverview.ToolList.Count == 0 )
+                if (!Project.LearningOverview.ToolList.Any(l => l.ActivityTitle.Equals("MindMapMozak123")))
                 {
                     var lntb = new LamsNoticeboard
                     {
@@ -769,7 +770,7 @@ namespace mDitaEditor
                         ToolContentID = 999,
                         Parent = Project.LearningOverview
                     };
-                    Project.LearningOverview.ToolList.Add( lntb );
+                    Project.LearningOverview.ToolList.Insert( 0,lntb );
                 }
 
                 enumerateFigures();

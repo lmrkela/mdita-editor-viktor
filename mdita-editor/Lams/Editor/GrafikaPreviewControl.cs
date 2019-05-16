@@ -89,6 +89,9 @@ namespace mDitaEditor.Lams.Editor
                     if ( title.Equals( "MindMapMozak123" ) )
                     {
                         Visible = false;
+
+
+
                     }
                 }
 
